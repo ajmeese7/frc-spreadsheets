@@ -98,9 +98,9 @@ function getScoreData(auth) {
         var currentTeamData = {
           // Format required for cell input: https://stackoverflow.com/a/43344928/6456163
           teamNumber: ["" + teamNumber ],
-          ccwm: ["" + data.ccwms[team] ],
-          dpr: ["" + data.dprs[team] ],
-          opr: ["" + data.oprs[team] ]
+          ccwm: ["" + data.ccwms[team].toFixed(2) ],
+          dpr: ["" + data.dprs[team].toFixed(2) ],
+          opr: ["" + data.oprs[team].toFixed(2) ]
         }
 
         teamData[teamNumber] = currentTeamData;

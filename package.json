@@ -1,0 +1,16 @@
+{
+  "name": "frc-spreadsheets",
+  "version": "1.0.0",
+  "description": "Add FRC event data to a spreadsheet.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ajmeese7/frc-spreadsheets"
+  },
+  "main": "index.js",
+  "author": "Aaron Meese",
+  "license": "MIT",
+  "dependencies": {
+    "googleapis": "^39.2.0",
+    "request": "^2.88.2"
+  }
+}

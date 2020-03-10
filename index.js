@@ -82,7 +82,7 @@ function getScoreData(auth) {
   var options = {
     method: 'GET',
     url: `https://www.thebluealliance.com/api/v3/event/${config.event_code}/oprs`,
-    headers: {'X-TBA-Auth-Key': config.TBA_key },
+    headers: { 'X-TBA-Auth-Key': config.TBA_key },
     datatype: "json"
   };
 
@@ -91,22 +91,44 @@ function getScoreData(auth) {
       console.error("Error retrieving score data:", error);
     } else {
       data = JSON.parse(body);
-      
-      var teams = [], ccwms = [], dprs = [], oprs = [];
+
+      var teamData = {};
       for (const team in data.ccwms) {
-        // Format required for cell input: https://stackoverflow.com/a/43344928/6456163
-        teams.push(["" + team.substring(3) ]);
-        ccwms.push(["" + data.ccwms[team] ]);
-        dprs.push(["" + data.dprs[team] ]);
-        oprs.push(["" + data.oprs[team] ]);
+        var teamNumber = team.substring(3);
+        var currentTeamData = {
+          // Format required for cell input: https://stackoverflow.com/a/43344928/6456163
+          teamNumber: ["" + teamNumber ],
+          ccwm: ["" + data.ccwms[team] ],
+          dpr: ["" + data.dprs[team] ],
+          opr: ["" + data.oprs[team] ]
+        }
+
+        teamData[teamNumber] = currentTeamData;
       }
 
-      // Sort the teams by ascending order
-      //teams.sort(function(a, b){return a-b});
-      //console.log(teams);
+      // Get the list of team numbers in numeric order
+      var orderedTeamNumbers = [];
+      for (const team in teamData) {
+        orderedTeamNumbers.push(team);
+      };
+
+      // Move the ordered team data points into one large array
+      var organizedData = [];
+      orderedTeamNumbers.forEach(function (team) {
+        organizedData.push(teamData[team]);
+      });
+
+      // Split the data into separate arrays with related data at the same indexes
+      var teams = [], ccwms = [], dprs = [], oprs = [];
+      for (i = 0; i < organizedData.length; i++) {
+        teams.push( organizedData[i].teamNumber );
+        ccwms.push( organizedData[i].ccwm );
+        dprs.push( organizedData[i].dpr );
+        oprs.push( organizedData[i].opr );
+      }
 
       // Ignore the header row
-      var columnRange = teams.length + 1;
+      var columnRange = organizedData.length + 1;
       var ranges = [ `A2:A${columnRange}`, `B2:B${columnRange}`, `C2:C${columnRange}`, `D2:D${columnRange}` ];
       var columnData = [ teams, ccwms, dprs, oprs ];
       ranges.forEach(async function (range, index) {

@@ -3,6 +3,8 @@ This is a useful script for automated FRC event scouting. If you input the code 
 every time the script runs it will update a Google spreadsheet with the CCWM, DPR, and OPR of every team
 that is competing.
 
+To see an example of what the generated spreadsheet looks like, look [here](https://github.com/ajmeese7/frc-spreadsheets/issues/1).
+
 ## Setup
 To get this project working, you need to add three things to `config.json`:
 - TBA API Key

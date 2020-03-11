@@ -43,3 +43,6 @@ project folder and run `node .`
 If nothing that screams "ERROR MESSAGE" pops up after
 running it, the script should've completed successfully. Check the spreadsheet to make
 sure all the data uploaded how you wanted it to and you'll be good.
+
+**NOTE:** The program leaves a blank row at the top for you to label the columns however you want them. The order in which they
+will be populated is team number, CCWM, DPR, OPR.

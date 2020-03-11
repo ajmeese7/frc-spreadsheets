@@ -38,6 +38,8 @@ how to do that, follow the steps [here](https://treehouse.github.io/installation
 
 ## Usage
 Once you have the config set up, all you need to do is go into the terminal from the
-project folder and run `node .`. If nothing that screams "ERROR MESSAGE" pops up after
+project folder and run `node .`
+
+If nothing that screams "ERROR MESSAGE" pops up after
 running it, the script should've completed successfully. Check the spreadsheet to make
 sure all the data uploaded how you wanted it to and you'll be good.

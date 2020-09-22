@@ -6,10 +6,11 @@ that is competing.
 To see an example of what the generated spreadsheet looks like, look [here](https://github.com/ajmeese7/frc-spreadsheets/issues/1).
 
 ## Setup
-To get this project working, you need to add three things to `config.json`:
+To get this project working, you need to add four things to `config.json`:
 - TBA API Key
 - Spreadsheet ID
 - Event code
+- Column labels
 
 ### TBA API Key
 You can get one of these from [The Blue Alliance](https://www.thebluealliance.com).
@@ -32,6 +33,10 @@ the corresponding "2013+ Event Abbreviation" is and paste it into the config fil
 for some reason, try Googling it and look for links to the event on the official FRC website. Usually if you scroll through
 that page you can find the event code you're looking for.
 
+### Column Labels
+The labels initially in the file may make sense to you, so these should only be
+changed if you have a preference to show something else here.
+
 ### After config file is set up
 - Make sure you have NodeJS 10.0.0 or greater installed on your system. If you are unsure
 how to do that, follow the steps [here](https://treehouse.github.io/installation-guides/windows/node-windows.html).
@@ -42,9 +47,10 @@ how to do that, follow the steps [here](https://treehouse.github.io/installation
 Once you have the config set up, all you need to do is go into the terminal from the
 project folder and run `node .`
 
-If nothing that screams "ERROR MESSAGE" pops up after
-running it, the script should've completed successfully. Check the spreadsheet to make
-sure all the data uploaded how you wanted it to and you'll be good.
+You'll be propmted to go to a Google page and copy back a token granting the application
+access to your Google Sheets account. If you look through the code, you can see that
+this code never leaves your machine and cannot be used for any malicious ends.
 
-**NOTE:** The program leaves a blank row at the top for you to label the columns however you want them. The order in which they
-will be populated is team number, CCWM, DPR, OPR.
+If nothing that screams "ERROR MESSAGE" pops up after running it, the script should've 
+completed successfully. Check the spreadsheet to make sure all the data uploaded how you 
+wanted it to and you'll be good.
